@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <!-- Phosphor icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+
+    <!-- JavaScript -->
+    <script src="script.js" defer></script>
+
+    <title>Birthday Info</title>
+  </head>
+  <body>
+    <div class="container d-flex min-vh-100 justify-content-center">
+      <div
+        class="d-flex flex-column gap-5 mx-2 my-5"
+        style="max-width: 50rem; width: 100%"
+      >
+        <h1 class="text-center">Birthday Info</h1>
+        <form method="" id="form">
+          <div class="d-flex flex-column flex-md-row gap-3 mb-4">
+            <div class="w-100 d-flex align-items-center">
+              <label for="birthday" class="form-label mb-0 me-2"
+                >Birthday:</label
+              >
+              <input type="date" class="form-control" id="birthday" />
+            </div>
+            <div class="w-100 d-flex align-items-center">
+              <label for="city" class="form-label mb-0 me-2">City:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="city"
+                placeholder="Budapest"
+              />
+            </div>
+            <div class="w-100 d-flex align-items-center">
+              <label for="country" class="form-label mb-0 me-2">Country:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="country"
+                placeholder="Hungary"
+              />
+            </div>
+          </div>
+
+          <div class="d-flex gap-3 justify-content-between">
+            <div class="d-flex gap-2">
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="btn-check-birthday"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-secondary" for="btn-check-birthday"
+                >Random Birthday
+              </label>
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="btn-check-location"
+                autocomplete="off"
+              />
+              <label class="btn btn-outline-secondary" for="btn-check-location"
+                >Random Location</label
+              >
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </form>
+
+        <div>
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active link-success"
+                id="age-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#age-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="age-tab-pane"
+                aria-selected="true"
+              >
+                Your age is...
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link link-success"
+                id="weather-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#weather-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="weather-tab-pane"
+                aria-selected="false"
+              >
+                Weather
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link link-success"
+                id="day-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#day-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="day-tab-pane"
+                aria-selected="false"
+              >
+                On this day...
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content mt-3 mx-2" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="age-tab-pane"
+              role="tabpanel"
+              aria-labelledby="age-tab"
+              tabindex="0"
+            >
+              <div><span id="age-years">28.4</span> in years</div>
+              <div><span id="age-months">234.3</span> in months</div>
+              <div><span id="age-weeks">739</span> in weeks</div>
+              <div><span id="age-days">8739</span> in days</div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="weather-tab-pane"
+              role="tabpanel"
+              aria-labelledby="weather-tab"
+              tabindex="0"
+            >
+              <div class="d-flex align-items-center gap-1 mt-2">
+                <i class="ph ph-thermometer me-1"></i>mean temperature:<span
+                  id="mean-temp"
+                  >13.0</span
+                >&#8451;
+              </div>
+              <div class="d-flex align-items-center gap-1 mt-2">
+                <i class="ph ph-thermometer me-1"></i>min/max temperature:<span
+                  id="min-temp"
+                  >10.2</span
+                >/<span id="max-temp">18.7</span>&#8451;
+              </div>
+              <div class="d-flex align-items-center gap-1 mt-1">
+                <i class="ph ph-sun-horizon me-1"></i>sunrise/sunset:<span
+                  id="sunrise"
+                  >6:52</span
+                >/<span id="sunset">20:04</span>
+              </div>
+              <div class="d-flex align-items-center gap-1 mt-1">
+                <i class="ph ph-wind me-1"></i>max wind speed/gusts:<span
+                  id="wind-speed"
+                  >3.9</span
+                >/<span id="wind-gusts">16.7</span> km/h
+              </div>
+              <div class="d-flex align-items-center gap-1 mt-1">
+                <i class="ph ph-umbrella me-1"></i>rain:<span id="rain"
+                  >0.0</span
+                >mm
+              </div>
+              <div class="d-flex align-items-center gap-1 mt-1">
+                <i class="ph ph-snowflake me-1"></i>snow:<span id="snow"
+                  >0.0</span
+                >cm
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="day-tab-pane"
+              role="tabpanel"
+              aria-labelledby="day-tab"
+              tabindex="0"
+            >
+              <div id="random-info">
+                October 18th is the day in 1967 that the Soviet probe Venera 4
+                reaches Venus and becomes the first spacecraft to measure the
+                atmosphere of another planet.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-sm-10 col-md-8 col-lg-7 col-xl-5">
+  <div>
+    <h3>Your age is...</h3>
+    <div>
+      <div><span id="age-years">28.4</span> in years</div>
+      <div><span id="age-months">234.3</span> in months</div>
+      <div><span id="age-weeks">739</span> in weeks</div>
+      <div><span id="age-days">8739</span> in days</div>
+    </div>
+          </div>
+
+          <div class="mt-4">
+            <h3>Weather</h3>
+            <div class="d-flex align-items-center gap-1 mt-2">
+              <i class="ph ph-thermometer me-1"></i>mean temperature:<span
+                id="mean-temp"
+                >13.0</span
+              >&#8451;
+            </div>
+            <div class="d-flex align-items-center gap-1 mt-2">
+              <i class="ph ph-thermometer me-1"></i>min/max temperature:<span
+                id="min-temp"
+                >10.2</span
+              >/<span id="max-temp">18.7</span>&#8451;
+            </div>
+            <div class="d-flex align-items-center gap-1 mt-1">
+              <i class="ph ph-sun-horizon me-1"></i>sunrise/sunset:<span
+                id="sunrise"
+                >6:52</span
+              >/<span id="sunset">20:04</span>
+            </div>
+            <div class="d-flex align-items-center gap-1 mt-1">
+              <i class="ph ph-wind me-1"></i>max wind speed/gusts:<span
+                id="wind-speed"
+                >3.9</span
+              >/<span id="wind-gusts">16.7</span> km/h
+            </div>
+            <div class="d-flex align-items-center gap-1 mt-1">
+              <i class="ph ph-umbrella me-1"></i>rain:<span id="rain">0.0</span
+              >mm
+            </div>
+            <div class="d-flex align-items-center gap-1 mt-1">
+              <i class="ph ph-snowflake me-1"></i>snow:<span id="snow">0.0</span
+              >cm
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <h3>On this day...</h3>
+            <div id="random-info">
+              October 18th is the day in 1967 that the Soviet probe Venera 4
+              reaches Venus and becomes the first spacecraft to measure the
+              atmosphere of another planet.
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </body>
+</html>
