@@ -2,6 +2,8 @@ const form = document.getElementById("form");
 const birthday = document.getElementById("birthday");
 const country = document.getElementById("country");
 const city = document.getElementById("city");
+const randomBirthdayBtn = document.getElementById("random-birthday-btn");
+const randomLocationBtn = document.getElementById("random-location-btn");
 const randomInfo = document.getElementById("random-info");
 const minTemp = document.getElementById("min-temp");
 const meanTemp = document.getElementById("mean-temp");
@@ -28,6 +30,10 @@ const randomDeaths = [
 ];
 
 // Event listener
+
+// Random birthday button
+randomBirthdayBtn.addEventListener("click", setRandomBirthday);
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -45,7 +51,7 @@ form.addEventListener("submit", async (e) => {
   );
 
   getWeatherData(latitude, longitude, birthdayValue);
-  getOnThisDayInfo(birthDate[0], birthDate[1]);
+  getThisDayInfo(birthDate[0], birthDate[1]);
 });
 
 // Get city coordinates from Open-Meteo API
@@ -75,7 +81,7 @@ const getCoordinates = async (city, targetCountry, targetCity) => {
 };
 
 // Get weather data from Open-Meteo API
-const getWeatherData = async (latitude, longitude, date) => {
+async function getWeatherData(latitude, longitude, date) {
   try {
     const res = await fetch(
       `https://archive-api.open-meteo.com/v1/archive?latitude=${latitude}&longitude=${longitude}&start_date=${date}&end_date=${date}&daily=weathercode,temperature_2m_max,temperature_2m_min,temperature_2m_mean,sunrise,sunset,rain_sum,snowfall_sum,windspeed_10m_max,windgusts_10m_max&timezone=auto`
@@ -99,10 +105,10 @@ const getWeatherData = async (latitude, longitude, date) => {
   } catch (err) {
     alert(err);
   }
-};
+}
 
-// Get "on this day" info from Wikipedia API
-const getOnThisDayInfo = async (month, day) => {
+// Get "This day" info from Wikipedia API
+async function getThisDayInfo(month, day) {
   try {
     const res = await fetch(
       `https://en.wikipedia.org/api/rest_v1/feed/onthisday/all/${month}/${day}`
@@ -124,10 +130,10 @@ const getOnThisDayInfo = async (month, day) => {
   } catch (err) {
     alert(err);
   }
-};
+}
 
 // Calculate age
-const getAgeData = (birthday) => {
+function getAgeData(birthday) {
   const birthDate = new Date(birthday);
 
   const ageInMilliseconds = Date.now() - Date.parse(birthDate);
@@ -140,4 +146,21 @@ const getAgeData = (birthday) => {
   ageMonths.textContent = ageInMonths.toFixed(1);
   ageWeeks.textContent = ageInWeeks.toFixed(1);
   ageDays.textContent = ageInDays.toFixed(1);
-};
+}
+
+// Set random birthday
+function setRandomBirthday() {
+  if (randomBirthdayBtn.checked) {
+    const currentYear = new Date().getFullYear();
+    let randomDay = Math.floor(Math.random() * 28) + 1;
+    let randomMonth = Math.floor(Math.random() * 12) + 1;
+    const randomYear = currentYear - Math.floor(Math.random() * 100) - 1;
+
+    if (randomMonth < 10) randomMonth = `0${randomMonth}`;
+    if (randomDay < 10) randomDay = `0${randomDay}`;
+
+    birthday.value = `${randomYear}-${randomMonth}-${randomDay}`;
+
+    console.log(`${randomYear}-${randomMonth}-${randomDay}`);
+  }
+}
