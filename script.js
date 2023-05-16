@@ -16,7 +16,18 @@ const ageYears = document.getElementById("age-years");
 const ageMonths = document.getElementById("age-months");
 const ageWeeks = document.getElementById("age-weeks");
 const ageDays = document.getElementById("age-days");
+const randomBirths = [
+  document.getElementById("random-birth-1"),
+  document.getElementById("random-birth-2"),
+  document.getElementById("random-birth-3"),
+];
+const randomDeaths = [
+  document.getElementById("random-death-1"),
+  document.getElementById("random-death-2"),
+  document.getElementById("random-death-3"),
+];
 
+// Event listener
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -85,12 +96,26 @@ const getWeatherData = async (latitude, longitude, date) => {
   }
 };
 
-// Get "on this day" info from Numbers API
+// Get "on this day" info from Wikipedia API
 const getOnThisDayInfo = async (month, day) => {
   try {
-    const res = await fetch(`http://numbersapi.com/${month}/${day}/date?json`);
+    const res = await fetch(
+      `https://en.wikipedia.org/api/rest_v1/feed/onthisday/all/${month}/${day}`
+    );
     const data = await res.json();
-    randomInfo.textContent = data.text;
+    const randomEvent =
+      data.events[Math.floor(Math.random() * data.events.length)];
+    randomInfo.textContent = `${randomEvent.text} (${randomEvent.year})`;
+
+    for (let i = 0; i < randomBirths.length; i++) {
+      const randomBirth =
+        data.births[Math.floor(Math.random() * data.births.length)];
+      const randomDeath =
+        data.deaths[Math.floor(Math.random() * data.deaths.length)];
+
+      randomBirths[i].textContent = `(${randomBirth.year}) ${randomBirth.text}`;
+      randomDeaths[i].textContent = `(${randomDeath.year}) ${randomDeath.text}`;
+    }
   } catch (err) {
     alert(err);
   }

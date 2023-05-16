@@ -30,7 +30,7 @@
   <body>
     <div class="container d-flex min-vh-100 justify-content-center">
       <div
-        class="d-flex flex-column gap-5 mx-2 my-5"
+        class="d-flex flex-column gap-5 mx-1 my-5"
         style="max-width: 50rem; width: 100%"
       >
         <h1 class="text-center">Birthday Info</h1>
@@ -100,7 +100,7 @@
                 aria-controls="age-tab-pane"
                 aria-selected="true"
               >
-                Your age is...
+                Your age...
               </button>
             </li>
             <li class="nav-item" role="presentation">
@@ -128,12 +128,12 @@
                 aria-controls="day-tab-pane"
                 aria-selected="false"
               >
-                On this day...
+                This day...
               </button>
             </li>
           </ul>
 
-          <div class="tab-content mt-3 mx-2" id="myTabContent">
+          <div class="tab-content mt-4 mx-2" id="myTabContent">
             <div
               class="tab-pane fade show active"
               id="age-tab-pane"
@@ -141,10 +141,10 @@
               aria-labelledby="age-tab"
               tabindex="0"
             >
-              <div><span id="age-years">28.4</span> in years</div>
-              <div><span id="age-months">234.3</span> in months</div>
-              <div><span id="age-weeks">739</span> in weeks</div>
-              <div><span id="age-days">8739</span> in days</div>
+              <p class="mb-2"><span id="age-years">28.4</span> in years</p>
+              <p class="mb-2"><span id="age-months">234.3</span> in months</p>
+              <p class="mb-2"><span id="age-weeks">739</span> in weeks</p>
+              <p class="mb-2"><span id="age-days">8739</span> in days</p>
             </div>
             <div
               class="tab-pane fade"
@@ -153,40 +153,40 @@
               aria-labelledby="weather-tab"
               tabindex="0"
             >
-              <div class="d-flex align-items-center gap-1 mt-2">
+              <p class="d-flex align-items-center gap-1 mb-2">
                 <i class="ph ph-thermometer me-1"></i>mean temperature:<span
                   id="mean-temp"
                   >13.0</span
                 >&#8451;
-              </div>
-              <div class="d-flex align-items-center gap-1 mt-2">
+              </p>
+              <p class="d-flex align-items-center gap-1 mb-2">
                 <i class="ph ph-thermometer me-1"></i>min/max temperature:<span
                   id="min-temp"
                   >10.2</span
                 >/<span id="max-temp">18.7</span>&#8451;
-              </div>
-              <div class="d-flex align-items-center gap-1 mt-1">
+              </p>
+              <p class="d-flex align-items-center gap-1 mb-2">
                 <i class="ph ph-sun-horizon me-1"></i>sunrise/sunset:<span
                   id="sunrise"
                   >6:52</span
                 >/<span id="sunset">20:04</span>
-              </div>
-              <div class="d-flex align-items-center gap-1 mt-1">
+              </p>
+              <p class="d-flex align-items-center gap-1 mb-2">
                 <i class="ph ph-wind me-1"></i>max wind speed/gusts:<span
                   id="wind-speed"
                   >3.9</span
                 >/<span id="wind-gusts">16.7</span> km/h
-              </div>
-              <div class="d-flex align-items-center gap-1 mt-1">
+              </p>
+              <p class="d-flex align-items-center gap-1 mb-2">
                 <i class="ph ph-umbrella me-1"></i>rain:<span id="rain"
                   >0.0</span
                 >mm
-              </div>
-              <div class="d-flex align-items-center gap-1 mt-1">
+              </p>
+              <p class="d-flex align-items-center gap-1 mb-2">
                 <i class="ph ph-snowflake me-1"></i>snow:<span id="snow"
                   >0.0</span
                 >cm
-              </div>
+              </p>
             </div>
             <div
               class="tab-pane fade"
@@ -195,71 +195,34 @@
               aria-labelledby="day-tab"
               tabindex="0"
             >
-              <div id="random-info">
-                October 18th is the day in 1967 that the Soviet probe Venera 4
-                reaches Venus and becomes the first spacecraft to measure the
-                atmosphere of another planet.
-              </div>
-            </div>
+              <h4 class="fs-5">Random event</h4>
+              <p id="random-info">
+                The Thomas Fire starts near Santa Paula in California. It
+                eventually became the largest wildfire in modern California
+                history to date after burning 440 square miles (1,140 km2) in
+                Ventura and Santa Barbara Counties. (2017)
+              </p>
+              <h4 class="fs-5 mt-4">Random Births</h4>
+              <p id="random-birth-1" class="mb-2">
+                Sebastián Vegas, Chilean footballer (1996)
+              </p>
+              <p id="random-birth-2" class="mb-2">
+                Peta Hiku, New Zealand rugby league player (1992)
+              </p>
+              <p id="random-birth-3" class="mb-2">
+                Shannon Briggs, American boxer and actor (1971)
+              </p>
+
+              <h4 class="fs-5 mt-4">Random Deaths</h4>
+              <p id="random-death-1" class="mb-2">Patrick Tambay, French race car driver (b. 1949) (2022)</p>
+              <p id="random-death-2" class="mb-2">
+                Miguel Calero, Colombian footballer and manager (b. 1971) (2012)
+              </p>
+              <p id="random-death-3" class="mb-2">
+                John Glenn, American astronaut, pilot, and politician (b. 1921) (2016)
+            </p>
           </div>
         </div>
-
-        <!-- <div class="col-sm-10 col-md-8 col-lg-7 col-xl-5">
-  <div>
-    <h3>Your age is...</h3>
-    <div>
-      <div><span id="age-years">28.4</span> in years</div>
-      <div><span id="age-months">234.3</span> in months</div>
-      <div><span id="age-weeks">739</span> in weeks</div>
-      <div><span id="age-days">8739</span> in days</div>
-    </div>
-          </div>
-
-          <div class="mt-4">
-            <h3>Weather</h3>
-            <div class="d-flex align-items-center gap-1 mt-2">
-              <i class="ph ph-thermometer me-1"></i>mean temperature:<span
-                id="mean-temp"
-                >13.0</span
-              >&#8451;
-            </div>
-            <div class="d-flex align-items-center gap-1 mt-2">
-              <i class="ph ph-thermometer me-1"></i>min/max temperature:<span
-                id="min-temp"
-                >10.2</span
-              >/<span id="max-temp">18.7</span>&#8451;
-            </div>
-            <div class="d-flex align-items-center gap-1 mt-1">
-              <i class="ph ph-sun-horizon me-1"></i>sunrise/sunset:<span
-                id="sunrise"
-                >6:52</span
-              >/<span id="sunset">20:04</span>
-            </div>
-            <div class="d-flex align-items-center gap-1 mt-1">
-              <i class="ph ph-wind me-1"></i>max wind speed/gusts:<span
-                id="wind-speed"
-                >3.9</span
-              >/<span id="wind-gusts">16.7</span> km/h
-            </div>
-            <div class="d-flex align-items-center gap-1 mt-1">
-              <i class="ph ph-umbrella me-1"></i>rain:<span id="rain">0.0</span
-              >mm
-            </div>
-            <div class="d-flex align-items-center gap-1 mt-1">
-              <i class="ph ph-snowflake me-1"></i>snow:<span id="snow">0.0</span
-              >cm
-            </div>
-          </div>
-
-          <div class="mt-4">
-            <h3>On this day...</h3>
-            <div id="random-info">
-              October 18th is the day in 1967 that the Soviet probe Venera 4
-              reaches Venus and becomes the first spacecraft to measure the
-              atmosphere of another planet.
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </body>
