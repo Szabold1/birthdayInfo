@@ -33,7 +33,12 @@ const randomDeaths = [
   document.getElementById("random-death-3"),
 ];
 
-// Event listener
+// Event listeners
+window.addEventListener("DOMContentLoaded", () => {
+  birthday.value = "1990-01-20";
+  getAgeData(birthday.value);
+  getThisDayInfo("01", "20");
+});
 
 // Random birthday button
 randomBirthdayBtn.addEventListener("click", setRandomBirthday);
