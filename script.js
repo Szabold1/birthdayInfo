@@ -85,8 +85,13 @@ const getWeatherData = async (latitude, longitude, date) => {
     minTemp.textContent = data.daily.temperature_2m_min[0];
     meanTemp.textContent = data.daily.temperature_2m_mean[0];
     maxTemp.textContent = data.daily.temperature_2m_max[0];
-    sunrise.textContent = data.daily.sunrise[0].slice(-5);
-    sunset.textContent = data.daily.sunset[0].slice(-5);
+    if (date.slice(0, 4) >= 1970) {
+      sunrise.textContent = data.daily.sunrise[0].slice(-5);
+      sunset.textContent = data.daily.sunset[0].slice(-5);
+    } else {
+      sunrise.textContent = "No data";
+      sunset.textContent = "No data";
+    }
     windSpeed.textContent = data.daily.windspeed_10m_max[0];
     windGusts.textContent = data.daily.windgusts_10m_max[0];
     rain.textContent = data.daily.rain_sum[0];
